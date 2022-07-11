@@ -212,7 +212,7 @@ public class IterationTest {
         numericLiteral = (NumericLiteral) assignmentExpression.right();
         assertEquals(1, numericLiteral.value());
 
-        assertTrue(forStatement.body() instanceof EmptyStatement);
+        assertTrue(forStatement.body() instanceof BlockStatement);
         BlockStatement blockStatement = (BlockStatement) forStatement.body();
         assertEquals(0, blockStatement.body().length);
     }
