@@ -1,0 +1,25 @@
+\documentclass[../userguide.tex]{subfiles}
+
+\begin{document}
+    \begin{lstlisting}[label=lst:conditions-syntaxe]
+        si condition
+            instruction | bloc
+        [sinon
+            instruction | bloc]
+    \end{lstlisting}
+    \divider
+
+    Les instructions conditionnelles sont une grande partie des langages de programmation impératifs.
+    Elles permettent de définir des conditions dans lesquelles un bloc de code sera exécuté.
+    La syntaxe de ces instructions est la suivante :
+    \begin{lstlisting}[label=lst:conditions-ex-1]
+        si condition1 {
+            // code a exécuter si la condition1 est vraie
+        } sinon si condition2 {
+            // code a exécuter si la condition1 est fausse, mais si la condition2 est vraie
+        } sinon {
+            // code a exécuter si aucune condition n'est vraie
+        }
+    \end{lstlisting}
+
+\end{document}

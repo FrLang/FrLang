@@ -1,0 +1,19 @@
+\documentclass[../userguide.tex]{subfiles}
+
+\begin{document}
+
+    \subsection{Structure d'une ligne} \label{subsec:structure-d'une-ligne}
+    \parindent
+    Toutes les instructions de \lang{} peuvent être séparées sur plusieurs lignes sous réserve qu'aucun mot-clé ou
+    identifiant ne soit coupé par ce saut de ligne.
+    Elles doivent toutes être séparées par un \code{;} (habituellement en fin de ligne).
+
+    \subsection{Structure d'un bloc} \label{subsec:structure-d'un-bloc}
+    \parindent
+    Les blocs sont une structure de code contenant des instructions.
+    Ils commencent par \code{\{} et se terminent par \code{\}}.
+    Toutes les instructions d'un block doivent être indentées d'un niveau au dessus du niveau précédent.
+    Ils ont la particularité de créer une portée de variables qui n'est accessible que dans le bloc courant,
+    et dans les éventuels blocs sous-jacent.
+
+\end{document}

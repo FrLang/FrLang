@@ -1,0 +1,156 @@
+\documentclass[../userguide.tex]{subfiles}
+
+\begin{document}
+
+    Les instructions répétitives, ou plus couramment appelées boucles sont des instructions destinées à être exécutées
+    plusieurs fois.\\
+    Il existe quatre types principaux de boucles :
+    \begin{itemize}
+        \item \code{tant que} : Permet de répéter une instruction tant que la condition est vraie.
+        \item \code{faire tant que} : Permet de répéter une instruction une fois ou plus tant que la condition est
+        vraie.
+        \item \code{pour} : Permet de créer une boucle qui s'exécute d'une certaine quantité de fois.
+        \item \code{pour chaque} : Permet de parcourir un tableau ou une liste et d'exécuter une instruction à chaque
+        itération.
+    \end{itemize}
+
+    \subsection{Les boucles \dcode{tant que} et \dcode{faire tant que}} \label{subsec:boucle-tant-que}
+    \parindent
+    \begin{lstlisting}[label=lst:boucle-tant-que-syntaxe]
+        tant que condition
+            instruction | bloc
+    \end{lstlisting}
+
+    \begin{lstlisting}[label=lst:boucle-faire-tant-que-syntaxe]
+        faire
+            instruction | bloc
+        tant que condition;
+    \end{lstlisting}
+    \divider
+
+    La boucle \code{tant que} permet d'exécuter une série d'instructions tant que la condition qui lui est
+    donnée est vraie. \\
+    Elle vérifie avant chaque itération si la condition est vraie et exécute les instructions contenues dans la boucle
+    si c'est le cas.
+
+    \begin{lstlisting}[label=lst:boucle-ex-1]
+        var a = "";
+        tant que taille(a) < 10 {
+            a += "a";
+        }
+        .a;
+    \end{lstlisting}
+
+    Cette boucle exécute l'instruction \code{a += "a"} tant que la longueur de tu texte \code{a} est inférieure à 10,
+    et affiche le contenu de \code{a} à la fin.
+
+    La boucle \code{faire tant que} permet elle aussi d'exécuter une série d'instructions tant que la condition qui lui
+    est donnée est vraie.
+    Cependant, elle vérifie si la condition est vraie après chaque itération, permettant donc de s'assurer que le
+    contenu de la boucle est exécuté au moins une fois.
+
+    \begin{lstlisting}[label=lst:boucle-ex-2]
+        var a: texte;
+        faire {
+            a = "a";
+        } tant que faux;
+        .a;
+    \end{lstlisting}
+    \begin{lstlisting}[label=lst:boucle-ex-3]
+        var a: texte;
+        tant que faux {
+            a = "a";
+        }
+        .a;
+    \end{lstlisting}
+
+    Dans le \hyperref[lst:boucle-ex-2]{premier cas}, l'instruction \code{.a;} à la fin affichera \code{a}, alors que dans
+    le \hyperref[lst:boucle-ex-3]{second cas}, cette même instruction affichera \code{nul}.
+
+    \subsection{Les boucles pour}\label{subsec:les-boucles-pour}
+    \parindent
+    Il existe trois types de boucles pour :
+    \begin{itemize}
+        \item \code{pour} : Permet de créer une boucle avec un compteur qui s'incrémente d'une certaine quantité un
+        certain nombre de fois.
+        \item \code{pour var} : Permet de créer une boucle \code{pour} avec un comportement personnalisé.
+        \item \code{pour chaque} : Permet de parcourir un tableau ou une liste et d'exécuter une instruction à chaque
+        itération.
+    \end{itemize}
+
+    \subsubsection{La boucle \dcode{pour}}
+    \parindent
+    \begin{lstlisting}[label=lst:boucle-pour-syntaxe]
+        pour nom = début -> fin [(pas)]
+            instruction | bloc
+    \end{lstlisting}
+    \divider
+
+    Cette boucle permet de créer une variable qui ira d'un nombre à un autre, avec un certain interval.
+    L'interval est optionnel et vaut 1 par défaut.
+    Si le nom de la variable donné existe déjà, la variable existante sera écrasée, et la valeur de la variable après
+    l'itération sera la valeur d'arrivée de la boucle.
+
+    \begin{lstlisting}[label=lst:boucle-pour-1]
+        pour i = 1 -> 10 {
+            .i;
+        }
+    \end{lstlisting}
+
+    \begin{lstlisting}[label=lst:boucle-pour-2]
+        pour i = 1 -> 10 (2) {
+            .i;
+        }
+    \end{lstlisting}
+
+    Le \hyperref[lst:boucle-pour-1]{premier exemple} affiche les entiers de 1 à 10, et le
+    \hyperref[lst:boucle-pour-2]{second exemple} affiche les entiers de 1 à 10 de 2 en 2.
+
+    \subsubsection{La boucle \dcode{pour var}}
+    \parindent
+    \begin{lstlisting}[label=lst:boucle-pour-var-syntaxe]
+        pour [initialisation]; [condition]; [etape]
+            instruction | bloc
+    \end{lstlisting}
+    \divider
+
+    La boucle \code{pour var} permet de créer un variable qui sera modifiée et vérifiée à chaque itération.
+    Cette boucle est séparée en trois parties, séparées par un point-virgule :
+    \begin{itemize}
+        \item \code{initialisation} : Création de la variable unique à la boucle.
+        \item \code{condition} : Condition vérifiée avant chaque itération.
+        \item \code{etape} : Modification apportée à la variable après chaque itération.
+    \end{itemize}
+
+    \begin{lstlisting}[label=lst:boucle-pour-var-1]
+        pour var i = 0; i <= 5; i += 1 {
+            .i;
+        }
+    \end{lstlisting}
+
+    Cette boucle est équivalente à la boucle \code{pour} suivante :
+    \begin{lstlisting}[label=lst:boucle-pour-var-2]
+        pour i = 0 -> 5 {
+            .i;
+        }
+    \end{lstlisting}
+
+    \subsubsection{La boucle \dcode{pour chaque}}
+    \parindent
+    \begin{lstlisting}[label=lst:boucle-pour-chaque-syntaxe]
+        pour chaque [nom] dans [tableau]
+            instruction | bloc
+    \end{lstlisting}
+    \divider
+
+    La boucle \code{pour chaque} permet de parcourir un tableau ou une liste et d'exécuter une action à chaque
+    itération.
+
+    \begin{lstlisting}[label=lst:boucle-pour-chaque-1]
+        const eleves = ["Tom", "Laura", "Bob", "John"];
+        pour chaque eleve dans eleves {
+            .eleve;
+        }
+    \end{lstlisting}
+
+\end{document}

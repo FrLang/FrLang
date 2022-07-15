@@ -1,0 +1,56 @@
+\documentclass[../userguide.tex]{subfiles}
+
+\begin{document}
+    \parindent
+    En \lang, les données sont typées fortement et statiquement, c'est-à-dire que chaque variable est associée à un
+    type de valeur, et qu'une fois que cette variable a pris un type, celle-ci ne peut plus en changer.
+
+    Les types de valeurs disponibles en \lang{} sont : \\
+
+    \begin{tabularx}{\columnwidth}{| l | X | l |}
+        \hline
+        \textbf{Type}     & \textbf{Description}                                       & \textbf{Exemple}  \\ \hline
+        \dcode{entier}    & Représente un nombre entier qu'il soit positif ou négatif  & \dcode{5}         \\ \hline
+        \dcode{decimal}   & Représente un nombre décimal qu'il soit positif ou négatif & \dcode{3.2}       \\ \hline
+        \dcode{booleen}   & Représente un booléen (vrai ou faux)                       & \dcode{vrai}      \\ \hline
+        \dcode{texte}     & Représente du texte                                        & \dcode{"bonjour"} \\ \hline
+        \dcode{caractere} & Représente un caractère                                    & \dcode{'a'}       \\ \hline
+        \dcode{?}         & Représente un type inconnu                                 & \dcode{?}         \\ \hline
+    \end{tabularx}
+    \parindent \\
+
+    \subsection{Types absolus} \label{subsec:types-absolus}
+    \parindent
+    Les types \code{entier} et \code{decimal} peuvent perdre leur capacité à devenir négatif s'ils sont suivis
+    du mot clé \code{absolu}, créant ainsi les types \code{entier absolu} et \code{decimal absolu}.
+
+    \subsection{Préciser un type de données à une variable} \label{subsec:preciser-un-type-de-donnees-a-une-variable}
+    \parindent
+    Il est possible, au moment de la création d'une variable, de préciser son type.
+    Cela permet de déjà connaître, et avant même son initialisation, le type de la variable.
+    En cas d'initialisation au moment de la déclaration de la variable, le type de la variable est déduit à partir
+    de sa valeur.
+    Il n'est donc jamais utile de préciser le type d'une constante. \\
+    La syntaxe pour préciser le type d'une variable est : \code{var nom: type}.
+
+    \begin{lstlisting}[label={lst:var-type-ex-1}]
+        var a: entier; // Creation d'une variable "a" de type entier
+        var b: decimal absolu, c; // Creation d'une variable "b" de type decimal absolu, et d'une variable "c" de type inconnu
+    \end{lstlisting}
+
+    \subsection{Type inconnu et pointeur nul} \label{subsec:type-inconnu-et-pointeur-nul}
+    \parindent
+    Le type \code{?} est un type inconnu, il est utilisé pour désigner un type qui n'est pas encore défini, par
+    exemple le type d'une variable non assignée, et sans type précisé.
+    C'est le seul type de variable qui peut changer après sa déclaration.
+
+    \begin{lstlisting}[label={lst:var-type-ex-2}]
+        var a: ?; // Creation d'une variable "a" de type inconnu
+        a = 5; // On assigne la valeur 5 a la variable "a". Le type de la variable "a" est maintenant entier.
+    \end{lstlisting}
+
+    Le pointeur nul quant à lui est une valeur qui peut être donnée à une variable de n'importe quel type et qui
+    permet de dire que la variable n'a pas de valeur.
+    C'est la valeur qui est utilisée lorsque la variable n'a pas encore été initialisée.
+    Le pointeur nul est donc la seule instance du type \code{?}.
+\end{document}

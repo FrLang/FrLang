@@ -1,0 +1,77 @@
+\documentclass[../userguide.tex]{subfiles}
+\usepackage{psnfss}
+
+\begin{document}
+    Une variable est un moyen de stocker une valeur sous un certain nom.
+    Elle est définie par un identifiant unique à sa portée et peut être utilisée dans les instructions suivant
+    sa déclaration.
+
+    \subsection{Déclaration d'une variable} \label{subsec:declaration-d'une-variable}
+    \begin{lstlisting}[label=lst:var-syntaxe]
+        var nom: type = valeur;
+    \end{lstlisting}
+    \divider
+
+    Les variables sont déclarées avec la syntaxe \code{var nom;}.
+    Il peut être suivi d'un symbole \code{=} pour définir une valeur à la variable comme suit :
+    \code{var nom = valeur;}.
+    \begin{lstlisting}[label={lst:var-ex-1}]
+        var a; // Creation de la variable "a" sans valeur
+        var b = 5; // Creation de la variable "b" avec la valeur 5
+    \end{lstlisting}
+    \parindent
+    Plusieurs déclarations de variables peuvent se faire sur une même instruction, ainsi, chaque
+    déclaration doit être séparée par une virgule.
+
+    \begin{lstlisting}[label={lst:var-ex-2}]
+        var a, b; // Creation de la variable "a" et "b" sans valeur
+        var c = 3, d; // Creation de la variable "c" avec la valeur 3, et "d" sans valeur
+    \end{lstlisting}
+
+    \subsection{Assignation d'une variable à une nouvelle valeur} \label{subsec:definition-d'une-variable}
+    \parindent
+
+    \subsubsection{Assignation simple} \label{subsubsec:assignation-simple}
+    \parindent
+
+    Une variable peut prendre une nouvelle valeur à l'aide de la syntaxe \code{identifier = valeur;}. L'instruction
+    retourne alors la nouvelle valeur de la variable, permettant de chainer les assignations.
+
+    \begin{lstlisting}[label={lst:var-ex-3}]
+        var a = 5; // Creation de la variable "a" avec la valeur 5
+        a = 6; // Assignation de la valeur 6 a la variable "a"
+
+        var b; // Creation de la variable b sans valeur
+        a = b = 2; // Assignation de la valeur 2 a la variable "a" et "b"
+    \end{lstlisting}
+
+    \subsubsection{Assignation complexe}
+    \parindent
+
+    D'autres opérateurs que le \code{=} permettent d'agir sur la valeur d'une variable :
+
+    \begin{lstlisting}[label={lst:var-ex-4}]
+        a += 6; // Ajoute 6 a la variable "a"
+        a -= 3; // Soustrait 3 a la variable "a"
+        a *= 2; // Multiplie "a" par 2
+        a /= 2; // Divise "a" par 2
+        a %= 2; // Modulo "a" par 2
+    \end{lstlisting}
+
+    \subsection{Création de constantes} \label{subsec:creation-de-constantes}
+    \parindent
+
+    Une constante est une variable qui, une fois assignée, ne peut plus être modifiée.
+    L'assignation de constantes se fait comme suit : \code{const nom = valeur;}. \\
+    Une constante ne peut pas être définie sans valeur, et ne peut pas prendre la valeur \code{nul}.
+
+    \begin{lstlisting}[label={lst:var-ex-5}]
+        const a = 5; // Creation de la constante "a" avec la valeur 5
+    \end{lstlisting}
+
+    \textbf{Le code suivant est donc incorrect :}
+    \begin{lstlisting}[label={lst:var-ex-6}]
+        const a = 5; // Creation de la constante "a" avec la valeur 5
+        a = 6; // Erreur : la constante "a" ne peut pas etre modifiee
+    \end{lstlisting}
+\end{document}

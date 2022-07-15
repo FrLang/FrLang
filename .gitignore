@@ -5,3 +5,5 @@
 /build/classes/java/test/
 /coverage/
 /.idea/
+docs/*.gz
+docs/auxil/

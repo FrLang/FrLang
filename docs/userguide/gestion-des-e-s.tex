@@ -1,0 +1,32 @@
+\documentclass[../userguide.tex]{subfiles}
+
+\begin{document}
+    Les entrées \& sorties sont une partie importante d'un langage de programmation.
+    En effet, c'est un moyen de communiquer entre le programmeur et l'utilisateur.
+    Il est donc important que la syntaxe des entrées et sorties soit minimale, afin de ne pas perdre de temps et de
+    place inutilement.
+    C'est pourquoi, dans le langage \lang, les entrées et sorties sont définies par une syntaxe simple et concise :
+
+    \subsection{Sorties} \label{subsec:sorties}
+    \parindent
+    Les sorties sont définies par le symbole \code{.} suivi de l'expression à afficher.
+
+    \begin{lstlisting}[label={lst:sorties-ex-1}]
+        . "Bonjour"; // Affichage du texte "Bonjour"
+        .a; // Affichage de la valeur de la variable "a"
+        .5; // Affichage de valeur "5"
+        .0.4; // Affichage de "0.4"
+    \end{lstlisting}
+
+    \subsection{Entrées} \label{subsec:entrees}
+    \parindent
+    Pour demander une valeur à l'utilisateur, il suffit d'écrire \code{???} dans le code.
+    Cela demandera alors à l'utilisateur de saisir une valeur.
+    Les variables résultant de cette saisie sont par défaut des variables de type \code{texte}, mais il est possible
+    d'automatiquement les transformer en variables d'un autre type primitif, en spécifiant explicitement leur type.
+
+    \begin{lstlisting}[label={lst:entrees-ex-1}]
+        var a = ???; // Saisie de la valeur de la variable "a" (texte)
+        var b: entier = ???; // Saisie de la valeur de la variable "b" (entier)
+    \end{lstlisting}
+\end{document}

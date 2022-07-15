@@ -1,0 +1,124 @@
+%! Author = RedsTom
+%! Date = 13/07/2022
+
+% Preamble
+\documentclass{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{color,soul,xcolor}
+\usepackage[formats]{listings}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{subfiles}
+
+% Configuration
+\geometry{a4paper, tmargin=1in, bmargin=1in, lmargin=.75in, rmargin=.75in}
+
+\definecolor{link}{RGB}{9,132,227}
+\definecolor{grey}{RGB}{87, 96, 111}
+\definecolor{codebg}{RGB}{241, 242, 246}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=link,
+    urlcolor=link,
+    filecolor=black,
+    pdftitle={Syntax},
+    pdfpagemode=FullScreen
+}
+\urlstyle{same}
+
+\setlength{\columnsep}{.5cm}
+
+\lstset{frame=l,
+    belowcaptionskip=1\baselineskip,
+    backgroundcolor=\color{codebg},
+    language=Java,
+    numbers=left,
+    numberstyle=\small,
+    rulecolor=\color{grey},
+    xleftmargin=\parindent\hspace{1em},
+    showstringspaces=false,
+    showspaces=false,
+    showlines=false,
+    columns=fixed,
+    basicstyle={\small\ttfamily},
+    keywordstyle=\color{link},
+    commentstyle=\color{grey},
+    stringstyle=\color[RGB]{16, 172, 132},
+    identifierstyle=\color[RGB]{112, 111, 211},
+    breaklines=true,
+    postbreak=\mbox{\textcolor{link}{$\hookrightarrow$}\space},
+    tabsize=4,
+    morekeywords={*,
+    var,
+    si,
+    sinon,
+    tant, que,
+    pour,
+    faire,
+    decimal,
+    absolu,
+    entier,
+    booleen,
+    texte,
+    caractere
+    },
+    gobble=8,
+    xleftmargin=2em,
+    captionpos=b,
+    extendedset=true,
+    inputencoding=utf8,
+    literate={é}{{\'e}}1
+        {è}{{\`e}}1
+        {à}{{\`à}}1,
+}
+
+% Balises personnalisées
+\newcommand{\sep}{
+    \begin{center}
+        $\ast$~$\ast$~$\ast$
+    \end{center}
+}
+\newcommand{\lang}{FrLang}
+\newcommand{\code}[1]{\sethlcolor{codebg}\hl{\texttt{#1}}}
+\newcommand{\dcode}[1]{\texttt{#1}}
+\newcommand{\csection}[2]{\section{#1}\label{sec:#2}\parindent\subfile{userguide/#2.tex}\sep}
+\newcommand{\divider}{\hline\vspace{.5cm}}
+
+% Informations
+\title{\lang \\\large Spécification - Guide Utilisateur}
+\author{RedsTom}
+\date{2022}
+
+% Document
+\begin{document}
+    \maketitle
+    \tableofcontents
+
+    \vspace{.5cm}
+    \sep
+    \vspace{.5cm}
+
+    \begin{multicols}{2}
+
+        \section*{Préambule} \label{sec:preambule}
+        \parindent
+        \subfile{userguide/preambule.tex}
+        \sep
+
+        \csection{Structure basique}{structure-basique}
+        \csection{Les variables}{variables}
+        \csection{Les types de données}{types-de-donnees}
+        \csection{La gestion des E/S}{gestion-des-e-s}
+        \csection{Les instructions conditionnelles}{instructions-conditionnelles}
+        \csection{Les instructions répétées}{instructions-repetitives}
+
+    \end{multicols}
+\end{document}
