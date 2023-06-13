@@ -22,7 +22,7 @@ import org.redstom.language.parser.ast.statement.iteration.WhileStatement;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class IterationTest {
+class IterationTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -33,12 +33,12 @@ public class IterationTest {
     private Parser parser;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         parser = new Parser();
     }
 
     @Test
-    public void emptyWhileLoop() {
+    void emptyWhileLoop() {
         Program program = parser.parse("""
                 tant que vrai;
                 """);
@@ -56,7 +56,7 @@ public class IterationTest {
     }
 
     @Test
-    public void filledWhileLoop() {
+    void filledWhileLoop() {
         Program program = parser.parse("""
                 tant que vrai {
                     a;
@@ -86,7 +86,7 @@ public class IterationTest {
 
 
     @Test
-    public void doWhile() {
+    void doWhile() {
         Program program = parser.parse("""
                 faire {
                     a;
@@ -115,7 +115,7 @@ public class IterationTest {
     }
 
     @Test
-    public void forRangeLoop() {
+    void forRangeLoop() {
         Program program = parser.parse("""
                 pour i = 0 -> 10 {}
                 """);
@@ -142,7 +142,7 @@ public class IterationTest {
     }
 
     @Test
-    public void forRangeLoopWithStep() {
+    void forRangeLoopWithStep() {
         Program program = parser.parse("""
                 pour i = 0 -> 10 (2) {}
                 """);
@@ -171,7 +171,7 @@ public class IterationTest {
     }
 
     @Test
-    public void forIntLoop() {
+    void forIntLoop() {
         Program program = parser.parse("""
                 pour var i = 0; i < 5; i += 1 {}
                 """);

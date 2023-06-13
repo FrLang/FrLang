@@ -13,7 +13,7 @@ import org.redstom.language.parser.ast.literal.NumericLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RelationalTest {
+class RelationalTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -24,12 +24,12 @@ public class RelationalTest {
     private Parser parser;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.parser = new Parser();
     }
 
     @Test
-    public void testSimpleGreaterRelational() {
+    void testSimpleGreaterRelational() {
         Program program = parser.parse("""
                 x > 10;
                 """);

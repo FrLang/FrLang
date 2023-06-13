@@ -14,7 +14,7 @@ import org.redstom.language.parser.ast.literal.NumericLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LogicalTest {
+class LogicalTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -25,12 +25,12 @@ public class LogicalTest {
     private Parser parser;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         parser = new Parser();
     }
 
     @Test
-    public void testAnd() {
+    void testAnd() {
         Program program = parser.parse("""
                 x > 0 et y < 1;
                 """);

@@ -6,7 +6,7 @@ import org.redstom.language.lexer.tokens.Token;
 import org.redstom.language.lexer.tokens.braces.OPEN_BRACE;
 import org.redstom.language.lexer.tokens.keywords.*;
 import org.redstom.language.lexer.tokens.syntax.SEMICOLON;
-import org.redstom.language.parser.ast.ASTNode;
+import org.redstom.language.parser.ast.AstNode;
 import org.redstom.language.parser.ast.expression.ExpressionStatement;
 import org.redstom.language.parser.ast.statement.iteration.IterationStatement;
 import org.redstom.language.parser.rdp.ParseContext;
@@ -15,7 +15,7 @@ import org.redstom.language.parser.rdp.ParserElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface Statement extends ASTNode {
+public interface Statement extends AstNode {
     /**
      * StatementList
      *  : Statement

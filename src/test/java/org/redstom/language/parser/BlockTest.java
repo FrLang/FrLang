@@ -14,7 +14,7 @@ import org.redstom.language.parser.ast.literal.StringLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BlockTest {
+class BlockTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -29,7 +29,7 @@ public class BlockTest {
     }
 
     @Test
-    public void blockStatement() {
+    void blockStatement() {
         Program result = parser.parse("""
                 {
                     42;
@@ -54,7 +54,7 @@ public class BlockTest {
     }
 
     @Test
-    public void emptyBlock() {
+    void emptyBlock() {
         Program result = parser.parse("""
                 {
                 }
@@ -68,7 +68,7 @@ public class BlockTest {
     }
 
     @Test
-    public void nestedBlocksWithLiterals() {
+    void nestedBlocksWithLiterals() {
         Program result = parser.parse("""
                 {
                     42;

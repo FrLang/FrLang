@@ -14,7 +14,7 @@ import org.redstom.language.parser.ast.literal.NumericLiteral;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DeclarationTest {
+class DeclarationTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -25,12 +25,12 @@ public class DeclarationTest {
     private Parser parser;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         this.parser = new Parser();
     }
 
     @Test
-    public void testSingleEmptyDeclaration() {
+    void testSingleEmptyDeclaration() {
         Program program = parser.parse("var x;");
 
         assertEquals(1, program.body().length);
@@ -46,7 +46,7 @@ public class DeclarationTest {
     }
 
     @Test
-    public void testSingleNumericDeclaration() {
+    void testSingleNumericDeclaration() {
         Program program = parser.parse("var x = 42;");
 
         assertEquals(1, program.body().length);
@@ -65,7 +65,7 @@ public class DeclarationTest {
     }
 
     @Test
-    public void testSingleCalculingDeclaration() {
+    void testSingleCalculingDeclaration() {
         Program program = parser.parse("var x = (42 - 5) * 2;");
 
         assertEquals(1, program.body().length);
@@ -92,7 +92,7 @@ public class DeclarationTest {
     }
 
     @Test
-    public void testDoubleEmptyDeclarations() {
+    void testDoubleEmptyDeclarations() {
         Program program = parser.parse("var x, y;");
 
         assertEquals(1, program.body().length);
@@ -113,7 +113,7 @@ public class DeclarationTest {
     }
 
     @Test
-    public void testDoubleDeclarationsWithFirstEmptyAndSecondDeclared() {
+    void testDoubleDeclarationsWithFirstEmptyAndSecondDeclared() {
         Program program = parser.parse("var x, y = 10;");
 
         assertEquals(1, program.body().length);
@@ -136,7 +136,7 @@ public class DeclarationTest {
     }
 
     @Test
-    public void testAssignmentToAlreadyExistingVariableReassigned() {
+    void testAssignmentToAlreadyExistingVariableReassigned() {
         Program program = parser.parse("var x = y = 10;");
 
         assertEquals(1, program.body().length);

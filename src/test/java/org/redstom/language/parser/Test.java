@@ -3,7 +3,7 @@ package org.redstom.language.parser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.val;
-import org.redstom.language.parser.ast.ASTNode;
+import org.redstom.language.parser.ast.AstNode;
 import org.redstom.language.parser.ast.expression.BinaryExpression;
 import org.redstom.language.parser.ast.expression.Expression;
 import org.redstom.language.parser.ast.expression.ExpressionStatement;
@@ -39,8 +39,8 @@ public class Test {
         System.out.println(GSON.toJson(test));
     }
 
-    private static void visit(ASTNode[] nodes) {
-        for (ASTNode node : nodes) {
+    private static void visit(AstNode[] nodes) {
+        for (AstNode node : nodes) {
             if (node instanceof BlockStatement stmt) {
                 visit(stmt.body());
             } else if (node instanceof ExpressionStatement stmt) {

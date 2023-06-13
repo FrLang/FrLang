@@ -13,7 +13,7 @@ import org.redstom.language.parser.ast.literal.NumericLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AssignmentTest {
+class AssignmentTest {
 
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapterFactory(Serializer.of(Object.class, "type"))
@@ -28,7 +28,7 @@ public class AssignmentTest {
     }
 
     @Test
-    public void testAssignment() {
+    void testAssignment() {
         Program result = parser.parse("""
                 x = 42;
                 """);
@@ -51,7 +51,7 @@ public class AssignmentTest {
     }
 
     @Test
-    public void testChainedAssignment() {
+    void testChainedAssignment() {
         Program result = parser.parse("""
                 x = y = 42;
                 """);
@@ -81,7 +81,7 @@ public class AssignmentTest {
     }
 
     @Test
-    public void testComplexAssignment() {
+    void testComplexAssignment() {
         Program result = parser.parse("""
                 x += 4;
                 """);

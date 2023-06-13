@@ -1,7 +1,7 @@
 package org.redstom.language.interpreter;
 
 import org.redstom.language.interpreter.variables.Variable;
-import org.redstom.language.parser.ast.ASTNode;
+import org.redstom.language.parser.ast.AstNode;
 import org.redstom.language.parser.ast.Program;
 import org.redstom.language.parser.ast.expression.AssignmentExpression;
 import org.redstom.language.parser.ast.expression.Expression;
@@ -30,8 +30,8 @@ public class BlockInterpreter {
         execute(program.body());
     }
 
-    private void execute(ASTNode[] nodes) {
-        for (ASTNode node : nodes) {
+    private void execute(AstNode[] nodes) {
+        for (AstNode node : nodes) {
             switch (node) {
                 case Literal literal -> {
                     System.out.println(this.Literal(literal));

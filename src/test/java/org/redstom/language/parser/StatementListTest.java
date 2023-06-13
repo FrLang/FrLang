@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.redstom.language.parser.ast.ASTNode;
+import org.redstom.language.parser.ast.AstNode;
 import org.redstom.language.parser.ast.Program;
 import org.redstom.language.parser.ast.expression.ExpressionStatement;
 import org.redstom.language.parser.ast.literal.NumericLiteral;
@@ -13,7 +13,7 @@ import org.redstom.language.parser.ast.literal.StringLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StatementListTest {
+class StatementListTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -28,13 +28,13 @@ public class StatementListTest {
     }
 
     @Test
-    public void testTwoStatements() {
+    void testTwoStatements() {
         Program program = parser.parse("""
                 "hello";
                 42;
                 """);
 
-        ASTNode[] stmts = program.body();
+        AstNode[] stmts = program.body();
         assertEquals(2, stmts.length);
 
         assertTrue(stmts[0] instanceof ExpressionStatement);

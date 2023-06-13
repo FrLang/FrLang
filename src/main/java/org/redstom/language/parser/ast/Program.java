@@ -10,7 +10,7 @@ import org.redstom.language.parser.rdp.ParserElement;
 @Builder
 public @Data class Program {
 
-    private ASTNode[] body;
+    private AstNode[] body;
 
     /**
      * Program
@@ -23,7 +23,7 @@ public @Data class Program {
             return builder()
                     .body(ctx.parse(ListParser.class,
                                     StatementListContext.builder().build())
-                            .toArray(ASTNode[]::new))
+                            .toArray(AstNode[]::new))
                     .build();
         }
     }

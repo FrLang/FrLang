@@ -27,7 +27,7 @@ class LiteralsTest {
     }
 
     @Test
-    public void doubleQuotedStringLiteral() {
+    void doubleQuotedStringLiteral() {
         Program result = parser.parse("""
                 "42";
                 """);
@@ -43,7 +43,7 @@ class LiteralsTest {
     }
 
     @Test
-    public void singleQuotedStringLiteral() {
+    void singleQuotedStringLiteral() {
         Program result = parser.parse("""
                 '42';
                 """);
@@ -59,7 +59,7 @@ class LiteralsTest {
     }
 
     @Test
-    public void numericLiteral() {
+    void numericLiteral() {
         Program result = parser.parse("""
                 42;
                 """);

@@ -11,7 +11,7 @@ import org.redstom.language.parser.ast.expression.UnaryExpression;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class UnaryTest {
+class UnaryTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -27,7 +27,7 @@ public class UnaryTest {
     }
 
     @Test
-    public void testUnaryNot() {
+    void testUnaryNot() {
         Program program = parser.parse("""
                 !a;
                 """);

@@ -12,7 +12,7 @@ import org.redstom.language.parser.ast.literal.NumericLiteral;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MathTest {
+class MathTest {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -27,7 +27,7 @@ public class MathTest {
     }
 
     @Test
-    public void testAddition() {
+    void testAddition() {
         System.out.println("------");
         Program result = parser.parse("""
                 1 + 2;
@@ -51,7 +51,7 @@ public class MathTest {
     }
 
     @Test
-    public void testChainedAddition() {
+    void testChainedAddition() {
         Program result = parser.parse("""
                 1 + 2 + 3;
                 """);
@@ -78,7 +78,7 @@ public class MathTest {
     }
 
     @Test
-    public void testMultiplication() {
+    void testMultiplication() {
         Program result = parser.parse("""
                 1 * 2;
                 """);
@@ -101,7 +101,7 @@ public class MathTest {
     }
 
     @Test
-    public void testAdditionThenMultiplication() {
+    void testAdditionThenMultiplication() {
         Program result = parser.parse("""
                 1 + 2 * 3;
                 """);
@@ -128,7 +128,7 @@ public class MathTest {
     }
 
     @Test
-    public void testParenthesisedAdditionThenMultiplication() {
+    void testParenthesisedAdditionThenMultiplication() {
         Program result = parser.parse("""
                 (1 + 2) * 3;
                 """);
@@ -155,7 +155,7 @@ public class MathTest {
     }
 
     @Test
-    public void testMultiplicationThenAddition() {
+    void testMultiplicationThenAddition() {
         Program result = parser.parse("""
                 1 * 2 + 3;
                 """);
@@ -182,7 +182,7 @@ public class MathTest {
     }
 
     @Test
-    public void testChainedMultiplication() {
+    void testChainedMultiplication() {
         Program result = parser.parse("""
                 1 * 2 * 3;
                 """);
