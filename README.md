@@ -1,6 +1,6 @@
 # Welcome to FrLang 👋
 ![Version](https://img.shields.io/badge/version-b0.1-blue.svg?cacheSeconds=2592000)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL v3-yellow.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+![License: GPL v3](https://img.shields.io/badge/License-GPL v3-yellow.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 > A programming language that aims to be simple to understand for french beginner developpers
 
