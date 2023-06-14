@@ -33,7 +33,7 @@ class AssignmentTest {
                 x = 42;
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];
@@ -56,7 +56,7 @@ class AssignmentTest {
                 x = y = 42;
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];
@@ -86,7 +86,7 @@ class AssignmentTest {
                 x += 4;
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];

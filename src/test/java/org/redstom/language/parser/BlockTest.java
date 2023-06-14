@@ -37,11 +37,11 @@ class BlockTest {
                 }
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof BlockStatement);
 
         BlockStatement block = (BlockStatement) result.body()[0];
-        assertEquals(block.body().length, 2);
+        assertEquals(2, block.body().length);
         assertTrue(block.body()[0] instanceof ExpressionStatement);
         assertTrue(block.body()[1] instanceof EmptyStatement);
 
@@ -60,11 +60,11 @@ class BlockTest {
                 }
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof BlockStatement);
 
         BlockStatement block = (BlockStatement) result.body()[0];
-        assertEquals(block.body().length, 0);
+        assertEquals(0, block.body().length);
     }
 
     @Test
@@ -78,16 +78,16 @@ class BlockTest {
                 }
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof BlockStatement);
 
         BlockStatement block = (BlockStatement) result.body()[0];
-        assertEquals(block.body().length, 2);
+        assertEquals(2, block.body().length);
         assertTrue(block.body()[0] instanceof ExpressionStatement);
         assertTrue(block.body()[1] instanceof BlockStatement);
 
         BlockStatement nestedBlock = (BlockStatement) block.body()[1];
-        assertEquals(nestedBlock.body().length, 1);
+        assertEquals(1, nestedBlock.body().length);
         assertTrue(nestedBlock.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) block.body()[0];

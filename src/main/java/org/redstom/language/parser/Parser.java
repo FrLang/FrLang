@@ -42,17 +42,16 @@ public class Parser {
         try {
             this.ctx = ParseContext.create(this);
             return ctx.parse(Program.Parser.class);
-        } catch (Throwable ex) {
-            if (ex instanceof Error e) {
-                e.show();
+        } catch (Error ex) {
+            ex.show();
+        } catch (Exception ex) {
+            if (lookahead != null) {
+                new SyntaxError("Unexpected \"" + lookahead().value() + "\" on line " + line + " ! ").show();
             } else {
-                if (lookahead != null) {
-                    new SyntaxError("Unexpected \"" + lookahead().value() + "\" on line " + line + " ! ").show();
-                } else {
-                    ex.printStackTrace();
-                }
+                ex.printStackTrace();
             }
         }
+
         return null;
     }
 

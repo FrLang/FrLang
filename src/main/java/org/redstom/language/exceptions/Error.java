@@ -1,6 +1,6 @@
 package org.redstom.language.exceptions;
 
-public class Error extends Throwable {
+public class Error extends RuntimeException {
 
     public Error(String message) {
         super(message);

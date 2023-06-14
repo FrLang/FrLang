@@ -14,11 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LiteralsTest {
 
-    private static final Gson GSON = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapterFactory(Serializer.of(Object.class, "type"))
-            .create();
-
     private Parser parser;
 
     @BeforeEach
@@ -32,7 +27,7 @@ class LiteralsTest {
                 "42";
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];
@@ -48,7 +43,7 @@ class LiteralsTest {
                 '42';
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];
@@ -64,7 +59,7 @@ class LiteralsTest {
                 42;
                 """);
 
-        assertEquals(result.body().length, 1);
+        assertEquals(1, result.body().length);
         assertTrue(result.body()[0] instanceof ExpressionStatement);
 
         ExpressionStatement stmt = (ExpressionStatement) result.body()[0];

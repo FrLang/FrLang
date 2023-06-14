@@ -14,7 +14,7 @@ import org.redstom.language.parser.rdp.ParserElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.redstom.language.utils.JavaUtils.e;
+import static org.redstom.language.utils.JavaUtils.eval;
 
 @Builder
 public @Data class VariableDeclaration implements Expression {
@@ -33,7 +33,7 @@ public @Data class VariableDeclaration implements Expression {
             List<VariableDeclaration> declarations = new ArrayList<>();
             do {
                 declarations.add(ctx.parse(VariableDeclaration.Parser.class));
-            } while (ctx.lookahead() instanceof COMMA && e(ctx.eat(COMMA.class)));
+            } while (ctx.lookahead() instanceof COMMA && eval(ctx.eat(COMMA.class)));
 
             return declarations;
         }

@@ -18,7 +18,7 @@ class LexerToken {
     }
 
     public static LexerToken of(Keyword keyword) {
-        return new LexerToken(keyword.PATTERN(), new Function<String, Token<?>>() {
+        return new LexerToken(keyword.pattern(), new Function<>() {
             @Override
             @SneakyThrows
             public Token<?> apply(String v) {

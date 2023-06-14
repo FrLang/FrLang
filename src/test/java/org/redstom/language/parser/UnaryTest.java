@@ -13,12 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UnaryTest {
 
-    private static final Gson GSON = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapterFactory(Serializer.of(Object.class, "type"))
-            .serializeNulls()
-            .create();
-
     private Parser parser;
 
     @BeforeEach
